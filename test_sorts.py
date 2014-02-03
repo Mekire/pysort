@@ -46,6 +46,7 @@ def main():
     my_list = [random.randint(0,100) for _ in range(100)]
     almost_sorted = perform_swaps(my_list[:], 5)
     already_sorted = sorted(my_list)
+    all_same = [1 for _ in range(100)]
     sorts = (sorted,
              pysort.bubble_naive,
              pysort.bubble_optimized,
@@ -57,10 +58,12 @@ def main():
              pysort.quick_random,
              pysort.quick_median,
              pysort.quick_inplace_random,
-             pysort.quick_inplace_median)
+             pysort.quick_inplace_median,
+             pysort.quick_inplace_repeat)
     test_all(sorts, my_list, "With a random shuffled list:", 10)
     test_all(sorts, almost_sorted, "With a list that is almost sorted:", 10)
     test_all(sorts, already_sorted, "With a list that is already sorted:", 10)
+    test_all(sorts, all_same, "With a list containing all the same item:", 10)
 
 
 if __name__ == "__main__":

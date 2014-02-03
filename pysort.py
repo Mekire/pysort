@@ -200,21 +200,62 @@ def quick_inplace_median(sequence, left=0, right=None):
         quick_inplace_median(sequence, pivot_new_ind+1, right)
 
 
+def quick_inplace_repeat(sequence, low=0, high=None):
+    """
+    In-place quicksort with median-of-3 pivot selection.
+    Uses an optimization specifically for lists that contain repeated elements.
+    With the other methods a list of all the same item automatically causes
+    worst O(n^2) performance.  Here we avoid this at the cost of slightly
+    longer average times.
+
+    Inplace: Yes
+    Time complexity: best O(n), avg O(nlogn), worst O(n^2)
+    """
+    if high is None:
+        high = len(sequence)-1
+    if low < high:
+        pivot_ind = median_of_three(sequence, low, high)
+        left, right = partition_repeat(sequence, low, high, pivot_ind)
+        quick_inplace_repeat(sequence, low, left)
+        quick_inplace_repeat(sequence, right, high)
+
+
 def partition(sequence, left, right, pivot_ind):
     """This is the key to the in-place quicksort."""
     pivot = sequence[pivot_ind]
     sequence[pivot_ind], sequence[right] = sequence[right], sequence[pivot_ind]
-    store_ind = left
+    index = left
     for i in range(left,right):
         if sequence[i] <= pivot:
-            sequence[i], sequence[store_ind] = sequence[store_ind], sequence[i]
-            store_ind += 1
-    sequence[store_ind], sequence[right] = sequence[right], sequence[store_ind]
-    return store_ind
+            sequence[i], sequence[index] = sequence[index], sequence[i]
+            index += 1
+    sequence[index], sequence[right] = sequence[right], sequence[index]
+    return index
+
+
+def partition_repeat(sequence, left, right, pivot_ind):
+    """
+    Partitioner that allows quicksort to avoid worst case performance on a
+    list that contains numerous repeated elements.
+    """
+    pivot = sequence[pivot_ind]
+    index = left
+    for i in range(left, right+1):
+        if sequence[i] < pivot:
+            sequence[i], sequence[index] = sequence[index], sequence[i]
+            index += 1
+    left = index
+    for i in range(left, right+1):
+        if sequence[i] == pivot:
+            sequence[i], sequence[index] = sequence[index], sequence[i]
+            index += 1
+    return left, index
 
 
 def median_of_three(sequence, left, right):
-    """Find the index (with respect to sequence) of the middle of three."""
+    """
+    Find the index (with respect to sequence) of the median of three values.
+    """
     mid = (left+right)//2
     values = {sequence[left] : left,
               sequence[mid] : mid,
