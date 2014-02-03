@@ -1,3 +1,3 @@
-Pysort.py contains implementations of many common sorting algorithms.  The implementations will, of course, never be faster than python's builtin sort/sorted; the purpose is purely pedogogical.  Implementing algorithms from psuedocode is a very useful excercise that I encourage others to experiment with.  It is also very helpful in learning about the somewhat tricky concept of time complexity.
+Pysort.py contains implementations of many common sorting algorithms.  The implementations will, of course, never be faster than python's builtin sort/sorted; the purpose is purely pedogogical.  Implementing algorithms from psuedocode is a very useful excercise with which I encourage others to experiment.  It is also very helpful in learning about the somewhat tricky concept of time complexity.
 
 -Mek
