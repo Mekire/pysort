@@ -1,0 +1,309 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pysort</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>pysort</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/owner/desktop/sorting_algorithms/pysort.py">c:\users\owner\desktop\sorting_algorithms\pysort.py</a></font></td></tr></table>
+    <p><tt>Various&nbsp;sorting&nbsp;algorithms&nbsp;implemented&nbsp;in&nbsp;python.<br>
+This&nbsp;is&nbsp;purely&nbsp;an&nbsp;academic&nbsp;excercise&nbsp;as&nbsp;no&nbsp;sorting&nbsp;implementation&nbsp;written<br>
+in&nbsp;python&nbsp;will&nbsp;possibly&nbsp;out&nbsp;perform&nbsp;the&nbsp;builtin&nbsp;implementation&nbsp;of&nbsp;timsort.<br>
+Even&nbsp;so,&nbsp;writing&nbsp;algorithms&nbsp;such&nbsp;as&nbsp;these&nbsp;is&nbsp;very&nbsp;helpful&nbsp;in&nbsp;understanding<br>
+time&nbsp;complexity&nbsp;and&nbsp;algorithm&nbsp;design.<br>
+&nbsp;<br>
+For&nbsp;an&nbsp;overview&nbsp;of&nbsp;sorting&nbsp;algorithms&nbsp;please&nbsp;see&nbsp;the&nbsp;Wikipedia&nbsp;page:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://en.wikipedia.org/wiki/Sorting_algorithm">http://en.wikipedia.org/wiki/Sorting_algorithm</a><br>
+&nbsp;<br>
+Free&nbsp;for&nbsp;all&nbsp;purposes.&nbsp;&nbsp;No&nbsp;warranty&nbsp;expressed&nbsp;or&nbsp;implied.<br>
+&nbsp;<br>
+-Written&nbsp;by&nbsp;Sean&nbsp;J&nbsp;McKiernan</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="pysort.html#Bubble">Bubble</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pysort.html#Heap">Heap</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pysort.html#Insertion">Insertion</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pysort.html#Merge">Merge</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pysort.html#Other">Other</a>
+</font></dt><dt><font face="helvetica, arial"><a href="pysort.html#Quick">Quick</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Bubble">class <strong>Bubble</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;various&nbsp;bubble&nbsp;sort&nbsp;implementations.<br>
+&nbsp;<br>
+<a href="http://en.wikipedia.org/wiki/Bubble_sort">http://en.wikipedia.org/wiki/Bubble_sort</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="Bubble-bubble_final_position"><strong>bubble_final_position</strong></a>(array)</dt><dd><tt>Performs&nbsp;negligibly&nbsp;worse&nbsp;than&nbsp;the&nbsp;bubble_optimized&nbsp;when&nbsp;the&nbsp;list&nbsp;is<br>
+completely&nbsp;shuffled,&nbsp;but&nbsp;much&nbsp;better&nbsp;on&nbsp;lists&nbsp;that&nbsp;are&nbsp;almost&nbsp;sorted.<br>
+This&nbsp;implementation&nbsp;takes&nbsp;advantage&nbsp;of&nbsp;the&nbsp;fact&nbsp;that&nbsp;quite&nbsp;often<br>
+multiple&nbsp;items&nbsp;find&nbsp;themselves&nbsp;in&nbsp;their&nbsp;final&nbsp;position&nbsp;after&nbsp;an<br>
+iteration.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;and&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Bubble-bubble_naive"><strong>bubble_naive</strong></a>(array)</dt><dd><tt>A&nbsp;standard&nbsp;bubble&nbsp;sort&nbsp;implementation&nbsp;with&nbsp;no&nbsp;optimizations.<br>
+Very&nbsp;bad&nbsp;and&nbsp;very&nbsp;slow.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;always&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Bubble-bubble_optimized"><strong>bubble_optimized</strong></a>(array)</dt><dd><tt>Performs&nbsp;much&nbsp;better&nbsp;than&nbsp;the&nbsp;naive&nbsp;implementation&nbsp;by&nbsp;itterating<br>
+through&nbsp;one&nbsp;less&nbsp;item&nbsp;in&nbsp;the&nbsp;inner&nbsp;loop&nbsp;each&nbsp;time&nbsp;through&nbsp;the&nbsp;outer<br>
+loop.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;always&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Bubble-bubble_optimized_with_flag"><strong>bubble_optimized_with_flag</strong></a>(array)</dt><dd><tt>Performs&nbsp;negligibly&nbsp;worse&nbsp;than&nbsp;the&nbsp;bubble_optimized&nbsp;when&nbsp;the&nbsp;list&nbsp;is<br>
+completely&nbsp;shuffled,&nbsp;but&nbsp;much&nbsp;better&nbsp;on&nbsp;lists&nbsp;that&nbsp;are&nbsp;almost&nbsp;sorted.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;and&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Heap">class <strong>Heap</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;various&nbsp;heap&nbsp;sort&nbsp;implementations.<br>
+&nbsp;<br>
+<a href="http://en.wikipedia.org/wiki/Heapsort">http://en.wikipedia.org/wiki/Heapsort</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="Heap-heap_sort"><strong>heap_sort</strong></a>(array)</dt><dd><tt>A&nbsp;basic&nbsp;implementation&nbsp;of&nbsp;heap&nbsp;sort.&nbsp;&nbsp;As&nbsp;with&nbsp;merge&nbsp;sort,&nbsp;heap&nbsp;sort&nbsp;is<br>
+also&nbsp;often&nbsp;out&nbsp;performed&nbsp;by&nbsp;quick&nbsp;sort&nbsp;in&nbsp;practical&nbsp;cases.<br>
+&nbsp;<br>
+Uses&nbsp;helper&nbsp;functions&nbsp;<a href="#Heap-heapify">heapify</a>()&nbsp;and&nbsp;<a href="#Heap-sift_down">sift_down</a>()<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;all&nbsp;O(nlogn)</tt></dd></dl>
+
+<dl><dt><a name="Heap-heapify"><strong>heapify</strong></a>(array, highest_index)</dt><dd><tt>Take&nbsp;an&nbsp;array&nbsp;and&nbsp;put&nbsp;it&nbsp;in&nbsp;heap&nbsp;order.&nbsp;&nbsp;Operates&nbsp;inplace.<br>
+&nbsp;<br>
+Used&nbsp;in&nbsp;<a href="#Heap-heap_sort">heap_sort</a>().<br>
+Uses&nbsp;<a href="#Heap-sift_down">sift_down</a>().</tt></dd></dl>
+
+<dl><dt><a name="Heap-sift_down"><strong>sift_down</strong></a>(array, start, end)</dt><dd><tt>Change&nbsp;position&nbsp;of&nbsp;item&nbsp;in&nbsp;list&nbsp;until&nbsp;it&nbsp;is&nbsp;correctly&nbsp;placed&nbsp;in&nbsp;heap.<br>
+&nbsp;<br>
+Used&nbsp;by&nbsp;<a href="#Heap-heap_sort">heap_sort</a>()&nbsp;(and&nbsp;<a href="#Heap-heapify">heapify</a>()).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Insertion">class <strong>Insertion</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;various&nbsp;insertion&nbsp;sort&nbsp;implementations.<br>
+&nbsp;<br>
+<a href="http://en.wikipedia.org/wiki/Insertion_sort">http://en.wikipedia.org/wiki/Insertion_sort</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="Insertion-insertion"><strong>insertion</strong></a>(array)</dt><dd><tt>Basic&nbsp;insertion&nbsp;sort.&nbsp;Still&nbsp;worst&nbsp;of&nbsp;O(n^2)&nbsp;but&nbsp;much&nbsp;faster&nbsp;than&nbsp;other<br>
+algorithms&nbsp;of&nbsp;the&nbsp;same&nbsp;time&nbsp;complexity&nbsp;like&nbsp;bubble&nbsp;sort.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;and&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Insertion-insertion_optimized"><strong>insertion_optimized</strong></a>(array)</dt><dd><tt>Improves&nbsp;performance&nbsp;by&nbsp;reducing&nbsp;the&nbsp;number&nbsp;of&nbsp;swaps&nbsp;required.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;and&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Insertion-insertion_optimized_alt"><strong>insertion_optimized_alt</strong></a>(array)</dt><dd><tt>Significantly&nbsp;faster&nbsp;than&nbsp;insertion_optimized&nbsp;on&nbsp;a&nbsp;shuffled&nbsp;list.<br>
+Slightly&nbsp;slower&nbsp;on&nbsp;an&nbsp;already&nbsp;sorted&nbsp;list.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;and&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Merge">class <strong>Merge</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;various&nbsp;merge&nbsp;sort&nbsp;implementations.<br>
+&nbsp;<br>
+<a href="http://en.wikipedia.org/wiki/Merge_sort">http://en.wikipedia.org/wiki/Merge_sort</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="Merge-merge"><strong>merge</strong></a>(left, right)</dt><dd><tt>Merges&nbsp;the&nbsp;values&nbsp;in&nbsp;left&nbsp;and&nbsp;right&nbsp;in&nbsp;the&nbsp;correct&nbsp;order.</tt></dd></dl>
+
+<dl><dt><a name="Merge-merge_sort"><strong>merge_sort</strong></a>(array)</dt><dd><tt>A&nbsp;basic&nbsp;implementation&nbsp;of&nbsp;merge&nbsp;sort.&nbsp;&nbsp;Despite&nbsp;enjoying&nbsp;a&nbsp;lower&nbsp;worst<br>
+case&nbsp;time&nbsp;complexity,&nbsp;quick&nbsp;sort&nbsp;often&nbsp;outperforms&nbsp;merge&nbsp;sort&nbsp;in<br>
+practical&nbsp;cases.<br>
+&nbsp;<br>
+Uses&nbsp;the&nbsp;helper&nbsp;function&nbsp;<a href="#Merge-merge">merge</a>().<br>
+&nbsp;<br>
+Inplace:&nbsp;No<br>
+Time&nbsp;complexity:&nbsp;all&nbsp;O(nlogn)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Other">class <strong>Other</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;contains&nbsp;various&nbsp;inefficient&nbsp;or&nbsp;novelty/humorous&nbsp;sorting<br>
+methods.&nbsp;&nbsp;Due&nbsp;to&nbsp;inefficiency&nbsp;these&nbsp;are&nbsp;not&nbsp;included&nbsp;in&nbsp;those&nbsp;automatically<br>
+tested&nbsp;in&nbsp;test_sorts.py.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="Other-bogo"><strong>bogo</strong></a>(array)</dt><dd><tt><a href="http://en.wikipedia.org/wiki/Bogosort">http://en.wikipedia.org/wiki/Bogosort</a><br>
+&nbsp;<br>
+Check&nbsp;if&nbsp;the&nbsp;list&nbsp;is&nbsp;in&nbsp;order;&nbsp;if&nbsp;it&nbsp;is&nbsp;not,&nbsp;shuffle&nbsp;the&nbsp;list.<br>
+This&nbsp;algorithm&nbsp;is&nbsp;so&nbsp;bad&nbsp;that&nbsp;a&nbsp;list&nbsp;of&nbsp;even&nbsp;10&nbsp;elements&nbsp;can&nbsp;take<br>
+more&nbsp;than&nbsp;15&nbsp;seconds&nbsp;to&nbsp;sort.<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;O(n*n!)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Quick">class <strong>Quick</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;various&nbsp;quick&nbsp;sort&nbsp;implementations.<br>
+&nbsp;<br>
+<a href="http://en.wikipedia.org/wiki/Quicksort">http://en.wikipedia.org/wiki/Quicksort</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Static methods defined here:<br>
+<dl><dt><a name="Quick-median_of_three"><strong>median_of_three</strong></a>(array, left, right)</dt><dd><tt>Find&nbsp;the&nbsp;index&nbsp;(with&nbsp;respect&nbsp;to&nbsp;array)&nbsp;of&nbsp;the&nbsp;median&nbsp;of&nbsp;the&nbsp;first,<br>
+last,&nbsp;and&nbsp;middle&nbsp;values.<br>
+&nbsp;<br>
+Used&nbsp;in&nbsp;<a href="#Quick-quick_median">quick_median</a>(),&nbsp;<a href="#Quick-quick_inplace_median">quick_inplace_median</a>(),&nbsp;and<br>
+<a href="#Quick-quick_inplace_repeat">quick_inplace_repeat</a>().</tt></dd></dl>
+
+<dl><dt><a name="Quick-partition"><strong>partition</strong></a>(array, left, right, pivot_ind)</dt><dd><tt>This&nbsp;is&nbsp;the&nbsp;key&nbsp;to&nbsp;the&nbsp;in-place&nbsp;quicksort.<br>
+&nbsp;<br>
+Used&nbsp;in&nbsp;<a href="#Quick-quick_inplace_random">quick_inplace_random</a>()&nbsp;and&nbsp;<a href="#Quick-quick_inplace_median">quick_inplace_median</a>().</tt></dd></dl>
+
+<dl><dt><a name="Quick-partition_repeat"><strong>partition_repeat</strong></a>(array, left, right, pivot_ind)</dt><dd><tt>Partitioner&nbsp;that&nbsp;allows&nbsp;quicksort&nbsp;to&nbsp;avoid&nbsp;worst&nbsp;case&nbsp;performance&nbsp;on&nbsp;a<br>
+list&nbsp;that&nbsp;contains&nbsp;numerous&nbsp;repeated&nbsp;elements.<br>
+&nbsp;<br>
+Used&nbsp;in&nbsp;<a href="#Quick-quick_inplace_repeat">quick_inplace_repeat</a>().</tt></dd></dl>
+
+<dl><dt><a name="Quick-quick_inplace_median"><strong>quick_inplace_median</strong></a>(array, left<font color="#909090">=0</font>, right<font color="#909090">=None</font>)</dt><dd><tt>In-place&nbsp;quicksort&nbsp;with&nbsp;median-of-3&nbsp;pivot&nbsp;selection.<br>
+&nbsp;<br>
+Uses&nbsp;the&nbsp;helper&nbsp;function&nbsp;<a href="#Quick-median_of_three">median_of_three</a>()&nbsp;and&nbsp;<a href="#Quick-partition">partition</a>().<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;O(nlogn),&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Quick-quick_inplace_random"><strong>quick_inplace_random</strong></a>(array, left<font color="#909090">=0</font>, right<font color="#909090">=None</font>)</dt><dd><tt>In-place&nbsp;quicksort&nbsp;with&nbsp;random&nbsp;pivot&nbsp;selection.<br>
+&nbsp;<br>
+Uses&nbsp;the&nbsp;helper&nbsp;function&nbsp;<a href="#Quick-partition">partition</a>().<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;O(nlogn),&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Quick-quick_inplace_repeat"><strong>quick_inplace_repeat</strong></a>(array, low<font color="#909090">=0</font>, high<font color="#909090">=None</font>)</dt><dd><tt>In-place&nbsp;quicksort&nbsp;with&nbsp;median-of-3&nbsp;pivot&nbsp;selection.<br>
+Uses&nbsp;an&nbsp;optimization&nbsp;specifically&nbsp;for&nbsp;lists&nbsp;that&nbsp;contain&nbsp;repeated<br>
+elements.&nbsp;&nbsp;With&nbsp;the&nbsp;other&nbsp;methods&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;same&nbsp;item<br>
+automatically&nbsp;causes&nbsp;worst&nbsp;O(n^2)&nbsp;performance.&nbsp;&nbsp;Here&nbsp;we&nbsp;avoid&nbsp;this&nbsp;at<br>
+the&nbsp;cost&nbsp;of&nbsp;slightly&nbsp;longer&nbsp;average&nbsp;times.<br>
+&nbsp;<br>
+Uses&nbsp;helper&nbsp;functions&nbsp;<a href="#Quick-median_of_three">median_of_three</a>()&nbsp;and&nbsp;<a href="#Quick-partition_repeat">partition_repeat</a>().<br>
+&nbsp;<br>
+Inplace:&nbsp;Yes<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;O(nlogn),&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Quick-quick_median"><strong>quick_median</strong></a>(array)</dt><dd><tt><a href="#Quick">Quick</a>&nbsp;sort&nbsp;with&nbsp;median-of-3&nbsp;pivot&nbsp;selection.<br>
+Not&nbsp;much&nbsp;noticable&nbsp;difference&nbsp;over&nbsp;random&nbsp;pivot&nbsp;selection.<br>
+&nbsp;<br>
+Inplace:&nbsp;No<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;O(nlogn),&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<dl><dt><a name="Quick-quick_random"><strong>quick_random</strong></a>(array)</dt><dd><tt><a href="#Quick">Quick</a>&nbsp;sort&nbsp;with&nbsp;random&nbsp;pivot&nbsp;selection.&nbsp;&nbsp;Far&nbsp;superior&nbsp;to&nbsp;insertion&nbsp;and<br>
+bubble&nbsp;sort&nbsp;in&nbsp;general&nbsp;cases,&nbsp;but&nbsp;quite&nbsp;a&nbsp;bit&nbsp;worse&nbsp;in&nbsp;cases&nbsp;where&nbsp;the<br>
+list&nbsp;is&nbsp;already&nbsp;sorted.<br>
+&nbsp;<br>
+Inplace:&nbsp;No<br>
+Time&nbsp;complexity:&nbsp;best&nbsp;O(n),&nbsp;avg&nbsp;O(nlogn),&nbsp;worst&nbsp;O(n^2)</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
