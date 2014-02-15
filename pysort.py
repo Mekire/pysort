@@ -24,6 +24,8 @@ if sys.version_info[0] < 3:
 #Bubble sorts.
 def bubble_naive(sequence):
     """
+    http://en.wikipedia.org/wiki/Bubble_sort
+
     A standard bubble sort implementation with no optimizations.
     Very bad and very slow.
 
@@ -92,6 +94,8 @@ def bubble_final_position(sequence):
 #Insertion sorts.
 def insertion(sequence):
     """
+    http://en.wikipedia.org/wiki/Insertion_sort
+
     Basic insertion sort. Still worst of O(n^2) but much faster than other
     algorithms of the same time complexity like bubble sort.
 
@@ -139,6 +143,8 @@ def insertion_optimized_alt(sequence):
 #Quick sorts.
 def quick_random(sequence):
     """
+    http://en.wikipedia.org/wiki/Quicksort
+
     Quick sort with random pivot selection.  Far superior to insertion and
     bubble sort in general cases, but quite a bit worse in cases where the list
     is already sorted.
@@ -292,6 +298,8 @@ def median_of_three(sequence, left, right):
 #Merge sorts.
 def merge_sort(sequence):
     """
+    http://en.wikipedia.org/wiki/Merge_sort
+
     A basic implementation of merge sort.  Despite enjoying a lower worst
     case time complexity, quick sort often outperforms merg sort in practical
     cases.
@@ -330,6 +338,8 @@ def merge(left, right):
 #Heap sorts.
 def heap_sort(sequence):
     """
+    http://en.wikipedia.org/wiki/Heapsort
+
     A basic implementation of heap sort.  As with merge sort, heap sort is
     also often out performed by quick sort in practical cases.
 
@@ -372,6 +382,8 @@ def sift_down(sequence, start, end):
 #Inefficient/novelty sorts.
 def bogo(sequence):
     """
+    http://en.wikipedia.org/wiki/Bogosort
+
     Check if the list is in order; if it is not, shuffle the list.
     Not intended to be a realistic method of sorting.
 
