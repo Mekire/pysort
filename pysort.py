@@ -1,3 +1,18 @@
+"""
+Various sorting algorithms implemented in python.
+This is purely an academic excercise as no sorting implementation written
+in python will possibly out perform the builtin implementation of timsort.
+Even so, writing algorithms such as these is very helpful in understanding
+time complexity and algorithm design.
+
+For an overview of sorting algorithms please see the Wikipedia page:
+    http://en.wikipedia.org/wiki/Sorting_algorithm
+
+Free for all purposes.  No warranty expressed or implied.
+
+-Written by Sean J McKiernan
+"""
+
 import sys
 import random
 
@@ -277,10 +292,13 @@ def median_of_three(sequence, left, right):
 #Merge sorts.
 def merge_sort(sequence):
     """
-    A basic implementation of merge sort.
+    A basic implementation of merge sort.  Despite enjoying a lower worst
+    case time complexity, quick sort often outperforms merg sort in practical
+    cases.
 
     Uses the helper function merge() below.
 
+    Inplace: No
     Time complexity: all O(nlogn)
     """
     length = len(sequence)
@@ -307,6 +325,48 @@ def merge(left, right):
     new += left[left_index:]
     new += right[right_index:]
     return new
+
+
+#Heap sorts.
+def heap_sort(sequence):
+    """
+    A basic implementation of heap sort.  As with merge sort, heap sort is
+    also often out performed by quick sort in practical cases.
+
+    Uses helper functions heapify() and sift_down()
+
+    Inplace: Yes
+    Time complexity: all O(nlogn)
+    """
+    highest_index = len(sequence)-1
+    heapify(sequence, highest_index)
+    for end in range(highest_index, 0, -1):
+        sequence[end], sequence[0] = sequence[0], sequence[end]
+        sift_down(sequence, 0, end-1)
+
+
+def heapify(sequence, highest_index):
+    """Take a sequence and put it in heap order.  Operates inplace."""
+    first = (highest_index-1)//2
+    for start in range(first, -1, -1):
+        sift_down(sequence, start, highest_index)
+
+
+def sift_down(sequence, start, end):
+    """Change position of item in list until it is correctly placed in heap."""
+    root = start
+    while root*2+1 <= end:
+        child = root*2+1
+        swap = root
+        if sequence[swap] < sequence[child]:
+            swap = child
+        if child+1 <= end and sequence[swap] < sequence[child+1]:
+            swap = child+1
+        if swap != root:
+            sequence[root], sequence[swap] = sequence[swap], sequence[root]
+            root = swap
+        else:
+            break
 
 
 #Inefficient/novelty sorts.
