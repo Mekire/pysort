@@ -54,20 +54,20 @@ def main():
     already_sorted = sorted(my_list)
     all_same = [1 for _ in range(100)]
     sorts = (sorted,
-             pysort.bubble_naive,
-             pysort.bubble_optimized,
-             pysort.bubble_optimized_with_flag,
-             pysort.bubble_final_position,
-             pysort.insertion,
-             pysort.insertion_optimized,
-             pysort.insertion_optimized_alt,
-             pysort.quick_random,
-             pysort.quick_median,
-             pysort.quick_inplace_random,
-             pysort.quick_inplace_median,
-             pysort.quick_inplace_repeat,
-             pysort.merge_sort,
-             pysort.heap_sort)
+             pysort.Bubble.bubble_naive,
+             pysort.Bubble.bubble_optimized,
+             pysort.Bubble.bubble_optimized_with_flag,
+             pysort.Bubble.bubble_final_position,
+             pysort.Insertion.insertion,
+             pysort.Insertion.insertion_optimized,
+             pysort.Insertion.insertion_optimized_alt,
+             pysort.Quick.quick_random,
+             pysort.Quick.quick_median,
+             pysort.Quick.quick_inplace_random,
+             pysort.Quick.quick_inplace_median,
+             pysort.Quick.quick_inplace_repeat,
+             pysort.Merge.merge_sort,
+             pysort.Heap.heap_sort)
     test_all(sorts, my_list, "With a random shuffled list:", 10)
     test_all(sorts, almost_sorted, "With a list that is almost sorted:", 10)
     test_all(sorts, already_sorted, "With a list that is already sorted:", 10)
