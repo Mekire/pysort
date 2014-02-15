@@ -444,7 +444,7 @@ class Other(object):
         more than 15 seconds to sort.
 
         Inplace: Yes
-        Time complexity: O(n*n!)
+        Time complexity: best O(n), average O(n*n!), worst unbounded
         """
         while any(array[i]>array[i+1] for i in range(len(array)-1)):
             random.shuffle(array)
