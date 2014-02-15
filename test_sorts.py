@@ -1,3 +1,9 @@
+"""
+Runs a series of tests on a number of sorting algorithms found in pysort.py.
+Sorting methods which are impractically tested are not included in the
+automatic testing but can be tested manually with the test() function.
+"""
+
 from __future__ import print_function
 
 import sys
@@ -59,7 +65,8 @@ def main():
              pysort.quick_median,
              pysort.quick_inplace_random,
              pysort.quick_inplace_median,
-             pysort.quick_inplace_repeat)
+             pysort.quick_inplace_repeat,
+             pysort.merge_sort)
     test_all(sorts, my_list, "With a random shuffled list:", 10)
     test_all(sorts, almost_sorted, "With a list that is almost sorted:", 10)
     test_all(sorts, already_sorted, "With a list that is already sorted:", 10)

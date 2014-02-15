@@ -171,6 +171,7 @@ def quick_median(sequence):
 def quick_inplace_random(sequence, left=0, right=None):
     """
     In-place quicksort with random pivot selection.
+    See the helper function partition() below.
 
     Inplace: Yes
     Time complexity: best O(n), avg O(nlogn), worst O(n^2)
@@ -187,6 +188,7 @@ def quick_inplace_random(sequence, left=0, right=None):
 def quick_inplace_median(sequence, left=0, right=None):
     """
     In-place quicksort with median-of-3 pivot selection.
+    See the helper function partition() below.
 
     Inplace: Yes
     Time complexity: best O(n), avg O(nlogn), worst O(n^2)
@@ -207,6 +209,8 @@ def quick_inplace_repeat(sequence, low=0, high=None):
     With the other methods a list of all the same item automatically causes
     worst O(n^2) performance.  Here we avoid this at the cost of slightly
     longer average times.
+
+    See the helper function partition_repeat() below.
 
     Inplace: Yes
     Time complexity: best O(n), avg O(nlogn), worst O(n^2)
@@ -257,12 +261,52 @@ def median_of_three(sequence, left, right):
     Find the index (with respect to sequence) of the median of three values.
     """
     mid = (left+right)//2
-    values = {sequence[left] : left,
-              sequence[mid] : mid,
-              sequence[right] : right}
-    median = max(min(sequence[left],sequence[mid]),
-                 min(max(sequence[left],sequence[mid]),sequence[right]))
-    return values[median]
+    if sequence[left] > sequence[mid]:
+        if sequence[mid] > sequence[right]:
+            return mid
+        elif sequence[left] > sequence[right]:
+            return right
+        return left
+    elif sequence[left] > sequence[right]:
+        return left
+    elif sequence[mid] > sequence[right]:
+        return right
+    return mid
+
+
+#Merge sorts.
+def merge_sort(sequence):
+    """
+    A basic implementation of merge sort.
+
+    Uses the helper function merge() below.
+
+    Time complexity: all O(nlogn)
+    """
+    length = len(sequence)
+    if length < 2:
+        return sequence
+    middle = length//2
+    left = merge_sort(sequence[:middle])
+    right = merge_sort(sequence[middle:])
+    return merge(left, right)
+
+
+def merge(left, right):
+    """Merges the values in left and right in the correct order."""
+    new = []
+    left_index, right_index = 0, 0
+    len_left, len_right = len(left), len(right)
+    while left_index < len_left and right_index < len_right:
+        if left[left_index] <= right[right_index]:
+            new.append(left[left_index])
+            left_index += 1
+        else:
+            new.append(right[right_index])
+            right_index += 1
+    new += left[left_index:]
+    new += right[right_index:]
+    return new
 
 
 #Inefficient/novelty sorts.
@@ -281,5 +325,3 @@ def bogo(sequence):
     while any(sequence[i]>sequence[i+1] for i in range(len(sequence)-1)):
         random.shuffle(sequence)
     return sequence
-
-
